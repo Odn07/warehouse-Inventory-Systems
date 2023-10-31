@@ -333,7 +333,7 @@ class Sales:
         # display a summary of sales 
         # detail
         try:
-            cls.show_sales_summary()
+            cls.show_sales_summary(PC)
         except BaseException:
             pass                              
             
@@ -381,7 +381,7 @@ class Sales:
    
    
     @classmethod
-    def show_sales_summary(cls):
+    def show_sales_summary(cls, PC):
         counter = 0    
         price_product = []
         total_qty = []
@@ -405,12 +405,12 @@ class Sales:
             print("|Total Qty: ", sum(int(list) for list in total_qty))
             print("|Total Amount: #", sum(float(list) for list in price_product), "\n", sep="")        
             #product balance in stock
-            cls.product_balance() 
+            cls.product_balance(PC) 
 
     
     
     @classmethod
-    def product_balance(cls):        
+    def product_balance(cls, PC):        
         try:
             with open(temp_file()) as file:
                 reader = csv.DictReader(file)
